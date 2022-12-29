@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier App</title>
+</head>
+<style>
+    #wellcome {
+        text-align: center;
+    }
+    
+    button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    h1 {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+    
+    button:hover {
+        background-color: #18cbfc;
+    }
+    
+    button {
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        padding: 5px 15px;
+        margin-top: 10px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        border: none;
+    }
+</style>
+
+<body>
+    <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+
+    <section id="wellcome">
+
+        <h1>Hello {{.name}}</h1>
+        <p>{{.message}}</p>
+
+        <header>
+
+            <button> <a href="/page/login">Go to Login Page</a></button>
+        </header>
+
+
+
+    </section>
+</body>
+
+</html>

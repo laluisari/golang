@@ -1,0 +1,8 @@
+golang profit loss | exercise-4
+
+pakek time.parse 
+
+formatting time.Time 
+
+
+Get itu returnnya respon sama error

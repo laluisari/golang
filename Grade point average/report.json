@@ -1,0 +1,10 @@
+{
+    "id": "M-20220606",
+    "name": "Imam Jaya Permana",
+    "date": "12/08/2022",
+    "semester": 5,
+    "studies": [{ "study_name": "A", "study_credit": 3, "grade": "A" },
+        { "study_name": "B", "study_credit": 3, "grade": "A" },
+        { "study_name": "C", "study_credit": 3, "grade": "A" }
+    ]
+}

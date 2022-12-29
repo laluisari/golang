@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard Page</title>
+    <script>
+        function displayQty(listData, checkId, qtyId) {
+            var checkBox = document.getElementById(checkId);
+            var qty = document.getElementById(qtyId);
+            if (checkBox.checked == true) {
+                qty.style.display = "block";
+                checkBox.value = listData + "," + qty.value
+            } else {
+                qty.style.display = "none";
+            }
+        }
+    </script>
+    <style>
+        body {
+            max-height: 900px;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #logout {
+            margin: 10px;
+            width: 30%;
+        }
+        
+        button {
+            cursor: pointer;
+            height: 25px;
+            width: 33%;
+        }
+        
+        .avatar {
+            float: left;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .avatar:hover {
+            background-color: #000;
+            cursor: pointer;
+        }
+        
+        .navbar {
+            width: 100%;
+            overflow: auto;
+        }
+        
+        .menu {
+            float: left;
+            text-align: center;
+            padding: 12px;
+            color: #000;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        header {
+            margin-bottom: 20px;
+            height: 60px;
+            background-color: #3ba3f2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="padding-top:10px; color: white; margin-left: 10px;">Dashboard Page</h1>
+    </header>
+
+    <nav style="margin-left: 20px;">
+        <img src="/static/images/myPict.png" alt="Avatar" class="avatar">
+        <label class="menu">Hello {{.Cart.Name}}</label>
+        <form method="post" action="/user/img/update-profile" enctype="multipart/form-data">
+            <div class="navbar">
+                <label class="menu">Update Profile: </label>
+                <br>
+                <input type="file" name="file-avatar" required />
+                <input type="submit">
+            </div>
+        </form>
+        <form method="get" action="/user/logout">
+            <button type="submmit" id="logout">Logout</button>
+        </form>
+    </nav>
+
+    <section style="margin-left:20px ; margin-top: 30px;">
+
+        <h2 style="margin-bottom: 10px;">List Product</h2>
+        <form method="post" action="/cart/add">
+            {{range $val := .Product}}
+            <input type="checkbox" id="check-{{ .Id }}" name="product" onclick="displayQty('{{ .Id }},{{ .Name }},{{ .Price }}', 'check-{{ .Id }}', 'qty-{{ .Id }}')">
+            <span>{{ .Id }}. {{ .Name }}: Rp. {{ .Price }},-</span>
+            <input type="number" style="display:none" id="qty-{{ .Id }}" value="1" min="1" max="100" onchange="displayQty('{{ .Id }},{{ .Name }},{{ .Price }}', 'check-{{ .Id }}', 'qty-{{ .Id }}')">
+            <br> {{else}} Empty Product {{end}}
+            <button type="submmit" style="margin-top: 10px;">Add to Cart</button>
+        </form>
+        </div>
+    </section>
+
+
+    <section style="margin-top: 50px; margin-left: 20px;">
+        <h2 style="margin-bottom: 10px;">My Cart</h2>
+        <table border="1">
+            <tr>
+                <th>Name </th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                {{range $val := .Cart.Cart}}
+                <td>{{ .Name }}</td>
+                <td> Rp. {{ .Price }},-</td>
+                <td> {{ .Quantity }}</td>
+                <td> {{ .Total }}</td>
+                {{else}} Empty Cart {{end}}
+            </tr>
+
+        </table>
+        <p>Total Price Rp. {{.Cart.TotalPrice}},-</p>
+
+
+
+    </section>
+
+
+</body>
+
+</html>

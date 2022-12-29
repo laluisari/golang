@@ -1,0 +1,11 @@
+{
+    "Id" : "M-20220606",
+    "Name": "Imam Jaya Permana",
+    "Date": "12/08/2022",
+    "Semester": 4,
+    "Studies": [
+        {"StudyName": "A", "StudyCredit": 3, "Grade": "A"},
+        {"StudyName": "B", "StudyCredit": 3, "Grade": "A"},
+        {"StudyName": "C", "StudyCredit": 3, "Grade": "A"}
+    ]
+}

@@ -1,0 +1,11 @@
+ kamu iterate pake 2 for buat dapetin slice
+ paling dalem di mana index 0 untuk profit index 1
+  untuk pengeluaran. nanti tinggal kamu kalkulasi aja 
+  (profit - pengeluaran) terus masukin ke slice of int
+
+slice of int ini 
+keterangan keuntungan perbulannya
+
+kalau dalam posisi loop
+jika kita run
+ambil data[0][0] nya terus tambahin

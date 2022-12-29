@@ -1,0 +1,26 @@
+task
+aku ingin dia ngecheck perbedaan date dan departemen
+jika beda maka lakukan tinggal auto tambah
+
+tapi disini kita ketahui bahwa method yg aku gunakan adalah method ngecheck 1 persatu
+
+tapi masalahnya disini itu kita itu, ngechecknya block 1 ke block lainnya
+
+target yg tidak sama date
+[a1 = 10-2, a2 = 11 - 3, b1 = 12- 4, c1 = 13 -5]
+invoice{a, a, b, c} yg di input itu invoicenya boy
+slice{"", "", b, c}
+
+sama all => 10- 2, 
+
+beda all => 11 -3, {}
+
+
+
+if date dan dep dari slice == invoicedata date dan departemen { 
+    count input ke []invoice.invoicedata{invoicedata}
+    kemudian kita hapus
+}else {
+
+}
+   
