@@ -1,0 +1,20 @@
+grader-cli assignment pull golang-condition-cp-2
+grader-cli assignment pull golang-condition-cp-3
+grader-cli assignment pull golang-condition-cp-4
+grader-cli assignment pull golang-condition-cp-5
+Looping
+
+grader-cli assignment pull golang-looping-cp-1
+grader-cli assignment pull golang-looping-cp-2
+grader-cli assignment pull golang-looping-cp-3
+grader-cli assignment pull golang-looping-cp-4
+grader-cli assignment pull golang-looping-cp-5
+grader-cli assignment pull golang-looping-cp-6
+Function
+
+grader-cli assignment pull golang-function-cp-1
+grader-cli assignment pull golang-function-cp-2
+grader-cli assignment pull golang-function-cp-3
+grader-cli assignment pull golang-function-cp-4
+grader-cli assignment pull golang-function-cp-5
+grader-cli assignment pull golang-function-cp-6

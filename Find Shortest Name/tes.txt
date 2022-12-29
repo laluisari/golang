@@ -1,0 +1,2 @@
+//pertama kita ambil namesnya, 
+//terus kita pecah ya tergantung dengan pemisahnya
