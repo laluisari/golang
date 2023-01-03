@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "general/header"}}
+</head>
+
+
+<body>
+    <div class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+        <div class="flex items-center flex-shrink-0 w-full h-16 px-10 bg-white bg-opacity-75">
+            <svg class="w-8 h-8 text-indigo-600 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+            <div class="flex items-center justify-center w-8 h-8 ml-auto">
+                <a href="/logout">
+                    <buton class="flex items-center justify-center w-8 h-8 ml-auto cursor-pointer font-bold">
+                        Logout
+                    </buton>
+                </a>
+            </div>
+        </div>
+        <div class="px-10 mt-6">
+            <h1 class="text-2xl font-bold">Kanban App</h1>
+        </div>
+        <div class="grid grid-cols-4 gap-4 px-10 mt-6">
+            {{ range $key, $cat := .categories }}
+            <div class="flex">
+                <p class="font-bold text-sm mr-1">{{ $cat.Type }}}</p>
+
+
+                <a href="/task/add?category={{ .ID }}"> <svg class="h-5 w-5 text-red-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg></a>
+                <a href="/category/delete?category_id={{ .ID }}">delete category</a>
+                <div></div>
+                {{ range $cat.Tasks }}
+
+                <a href="/task/update?task_id={{ .ID }}"> <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+
+                    <!-- <a href="/task/delete?task_id={{ .ID }}"> <svg class="h-5 w-5 text-red-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg></a>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                </a> -->
+
+                    <form action="POST" action="/task/delete?task_id={{ .ID }}">
+                        <button type="submit">
+                            <svg class="h-5 w-5 text-red-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg></a>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        </button>
+
+                    </form>
+                    <h1>{{ .Title }}</h1>
+                    <h1>{{ .Description }}</h1>
+
+
+            </div>
+            <div class="px-3">
+
+                <a href="/task/update/process?task_id={{ .ID }}&category_id={{ categoryDec $cat.ID }}"></a>
+            </div>
+            <div class="px-3">
+
+                <a href="/task/update/process?task_id={{ .ID }}&category_id={{ categoryInc $cat.ID }}"></a>
+            </div>
+            <!-- TODO: answer here -->
+
+            {{ end }}{{ end }}
+            <div class="px-3">
+                <a href="/category/add"> <button class="rounded-none">Add category</button></a>
+
+            </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4 px-10 mt-6">
+            <div class="w-full bg-white">
+                <textarea name="" id="" cols="20" rows="8" class="w-full"></textarea>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
